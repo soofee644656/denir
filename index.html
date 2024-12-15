@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة الاستثمار</title>
+    <!-- إضافة Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="scripts.js" defer></script>
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 1.5em 0;
+        }
+        header h1 {
+            font-size: 2rem;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2em;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+        .card {
+            margin: 1em 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: #007bff;
+            color: white;
+            padding: 1em 0;
+            margin-top: 2em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="text-center">
+        <h1>مرحباً بكم في منصة الاستثمار</h1>
+    </header>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- لوحة التحكم -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">لوحة التحكم</h5>
+                        <p><strong>إجمالي الأرباح:</strong> <span id="total-earnings">0.00$</span></p>
+                        <p><strong>عدد الخطط النشطة:</strong> <span id="active-plans">0</span></p>
+                        <canvas id="earnings-chart" width="100%" height="70"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الملف الشخصي -->
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">الملف الشخصي</h5>
+                        <p><strong>اسم المستخدم:</strong> <span id="profile-username">محمد</span></p>
+                        <p><strong>البريد الإلكتروني:</strong> <span id="profile-email">mohamed@example.com</span></p>
+                        <p><strong>الخطة الحالية:</strong> <span id="current-plan">10$ شهرياً</span></p>
+                        <p><strong>نوع المستخدم:</strong> <span id="user-type">مستخدم عادي</span></p>
+                        <button class="btn btn-primary">تحديث المعلومات</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- كبار الشخصيات والاشتراكات -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">كبار الشخصيات والاشتراكات</h5>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h6 class="card-title">اشتراك 10$</h6>
+                                        <p>للمبتدئين</p>
+                                        <button class="btn btn-success">اشترك الآن</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h6 class="card-title">اشتراك 100$</h6>
+                                        <p>للمستثمرين المتوسطين</p>
+                                        <button class="btn btn-success">اشترك الآن</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h6 class="card-title">اشتراك 1000$</h6>
+                                        <p>للمستثمرين المتقدمين</p>
+                                        <button class="btn btn-success">اشترك الآن</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h6 class="card-title">اشتراك 10000$</h6>
+                                        <p>كبار الشخصيات</p>
+                                        <button class="btn btn-success">اشترك الآن</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- المهام اليومية -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">المهام اليومية</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item">إكمال تسجيل الدخول اليومي - <span class="text-success">5 نقاط</span></li>
+                            <li class="list-group-item">دعوة صديق جديد - <span class="text-success">20 نقطة</span></li>
+                            <li class="list-group-item">استثمار جديد - <span class="text-success">50 نقطة</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 منصة الاستثمار. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('earnings-chart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['يناير', 'فبراير', 'مارس', 'أبريل'],
+                    datasets: [{
+                        label: 'الأرباح التراكمية',
+                        data: [0, 20, 40, 60],
+                        backgroundColor: 'rgba(0, 123, 255, 0.2)',
+                        borderColor: 'rgba(0, 123, 255, 1)',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
